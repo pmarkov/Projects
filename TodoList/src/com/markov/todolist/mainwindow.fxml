@@ -59,7 +59,7 @@
     </left>
     <center>
         <VBox style="-fx-background-color: white">
-            <TextArea fx:id="itemDetailsTextArea" wrapText="true" VBox.vgrow="ALWAYS"/>
+            <TextArea fx:id="itemDetailsTextArea" wrapText="true" editable="false" VBox.vgrow="ALWAYS"/>
             <HBox>
                 <Label text="Due: ">
                     <font>
