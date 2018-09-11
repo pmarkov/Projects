@@ -1,0 +1,60 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<BorderPane fx:controller="com.markov.musicalcollection.ui.SongsWindowController"
+            xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets top="5" bottom="15" right="15" left="15"/>
+    </padding>
+    <top>
+        <HBox>
+            <TextField fx:id="songTextField" text="Search for song..." prefWidth="250"
+                       onMouseClicked="#clearTextField" onKeyReleased="#searchSongByName"/>
+            <BorderPane.margin>
+                <Insets bottom="15"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="songView" BorderPane.alignment="CENTER" onMouseClicked="#restoreTextField">
+            <columns>
+                <TableColumn prefWidth="50" text="Track">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="track"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${songView.width}" text="Title">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="title"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="30" BorderPane.alignment="CENTER">
+            <Button onAction="#goToAlbums" text="Back To Albums" prefWidth="150"/>
+            <Button onAction="#addSong" text="Add New Song" prefWidth="150"/>
+            <Button onAction="#updateSongName" text="Update Song" prefWidth="150"/>
+            <Button onAction="#deleteSong" text="Delete Song" prefWidth="150"/>
+            <BorderPane.margin>
+                <Insets left="15"/>
+            </BorderPane.margin>
+        </VBox>
+    </right>
+    <bottom>
+        <Label fx:id="infoLabel" prefWidth="500">
+            <font>
+                <Font name="Ariel" size="14"/>
+            </font>
+        </Label>
+    </bottom>
+</BorderPane>

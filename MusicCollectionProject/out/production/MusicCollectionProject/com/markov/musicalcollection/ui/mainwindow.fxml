@@ -1,0 +1,51 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<BorderPane fx:controller="com.markov.musicalcollection.ui.ArtistsWindowController"
+            xmlns:fx="http://javafx.com/fxml">
+    <padding>
+        <Insets top="5" bottom="15" right="15" left="15"/>
+    </padding>
+    <top>
+        <HBox>
+            <TextField fx:id="artistTextField" text="Search for artist..." onMouseClicked="#clearTextField"
+                       prefWidth="250" onKeyReleased="#searchArtistByName"/>
+
+            <BorderPane.margin>
+                <Insets bottom="15"/>
+            </BorderPane.margin>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="artistView" BorderPane.alignment="CENTER" onMouseClicked="#restoreTextField">
+            <columns>
+                <TableColumn prefWidth="${artistView.width}" text="Artist's Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+    <right>
+        <VBox spacing="30" BorderPane.alignment="CENTER">
+            <Button onAction="#listAlbumsForArtist" text="View Albums" prefWidth="150"/>
+            <Button onAction="#addArtist" text="Add New Artist" prefWidth="150"/>
+            <Button onAction="#updateArtistName" text="Update Artist's Name" prefWidth="150"/>
+            <Button onAction="#deleteArtist" text="Delete Artist" prefWidth="150"/>
+            <BorderPane.margin>
+                <Insets left="15"/>
+            </BorderPane.margin>
+        </VBox>
+    </right>
+    <bottom>
+        <Label prefWidth="500"/>
+    </bottom>
+</BorderPane>
